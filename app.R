@@ -18,7 +18,7 @@ library(scico)   # palettes
 #   Both distinguishable under deuteranopia & protanopia
 ROMA   <- scico(10, palette = "roma")
 COL_A      <- ROMA[2]    # blue-ish
-COL_B      <- ROMA[9]    # red-ish
+COL_B      <- ROMA[8]    # red-ish
 COL_OVER   <- scico(10, palette = "vanimo")[2]  # neutral mid purple
 COL_REJECT <- "#90A198" # manually picked from the palette
 COL_STAT   <- scico(5, palette = "bamako")[4] # green
@@ -26,6 +26,9 @@ COL_NULL   <- ROMA[2]
 COL_ALT    <- ROMA[9]
 
 # ── Pooled SD helper ─────────────────────────────────────────
+# for class purposes I am using the formula of pooled sd from
+# the lab manual
+
 pooled_sd <- function(sd_a, n_a, sd_b, n_b) {
   sqrt(((n_a - 1)*sd_a^2 + (n_b - 1)*sd_b^2) / (n_a + n_b - 2))
 }
@@ -45,7 +48,7 @@ ui <- fluidPage(
     .shiny-output-error-validation { color:#ff9999; }
   "))),
 
-  titlePanel(h2("🎯 Dart Game T-Test Explorer")),
+  titlePanel(title = "🎯 Dart Game T-Test Explorer", windowTitle = "Dart Game T-Test Explorer"),
   p("Interactive tool for exploring group differences — two-sample equal-variance t-test.",
     style = "color:#aaa; margin-bottom:16px;"),
 
